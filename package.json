@@ -1,0 +1,22 @@
+{
+  "name": "wsip_api",
+  "version": "1.0.0",
+  "description": "This is the back-end for the What Should I Play service",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Sam-Glerum/wsip_api.git"
+  },
+  "author": "Sam Glerum",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Sam-Glerum/wsip_api/issues"
+  },
+  "homepage": "https://github.com/Sam-Glerum/wsip_api#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
