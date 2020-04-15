@@ -1,11 +1,19 @@
-let express = require('express');
+const dotenv = require('dotenv');
+dotenv.config();
+const express = require('express');
+const bodyParser = require('body-parser');
+const index = express();
 
-let index = express();
+// Enable bodyParser, so that we can parse json from incoming requests
+index.use(bodyParser.json());
+// Load routes
+index.use("/api", require("./routes/v1/steam_request_routes"));
 
 index.get("*", (req, res) => {
-    res.status(200).json({"response" : "API works!"})
+    res.status(200).json({"response" : "Welcome to the WSIP api!"})
 });
 
-index.listen(3000, () => {
-    console.log("Server is listening on port 3000")
+// Set the port
+index.listen(process.env.PORT || 3000, () => {
+    console.log("Server is listening on port " + (process.env.PORT || 3000));
 });
