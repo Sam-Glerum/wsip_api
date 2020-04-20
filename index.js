@@ -3,9 +3,12 @@ dotenv.config();
 const express = require('express');
 const bodyParser = require('body-parser');
 const index = express();
+const cors = require('cors');
 
 // Enable bodyParser, so that we can parse json from incoming requests
 index.use(bodyParser.json());
+// Enable CORS
+index.use(cors());
 // Load routes
 index.use("/api", require("./routes/v1/steam_request_routes"));
 
