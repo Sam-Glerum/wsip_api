@@ -13,7 +13,7 @@ router.get("/:steamID", (req, res) => {
     // Query the steam api for a list of all the user's owned games
     axios.get('http://api.steampowered.com/IPlayerService/GetOwnedGames/v0001/?key=' + api_key + '&steamid=' + steamID + '&include_appinfo=true&format=json')
         .then((games) => {
-            res.status(200).json({listOfGames: games.data.response.games});
+            res.status(200).json(games.data.response.games);
         })
         .catch((error) => {
             res.status(404).json(error);
