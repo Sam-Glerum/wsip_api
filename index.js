@@ -20,3 +20,5 @@ index.get("*", (req, res) => {
 index.listen(process.env.PORT || 3000, () => {
     console.log("Server is listening on port " + (process.env.PORT || 3000));
 });
+
+module.exports = index;
