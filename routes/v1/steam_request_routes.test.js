@@ -9,12 +9,20 @@ afterAll(done => {
 describe('Testing route: /api/:steamID', () => {
     let steamID = 76561198049183521
     let api_key = process.env.STEAM_API_KEY;
-    let steamApiUrl = 'http://api.steampowered.com/IPlayerService/GetOwnedGames/v0001/?key=' + api_key + '&steamid=' + steamID + '&include_appinfo=true&format=json'
+    let requestUrl = '/api/' + steamID;
+    let badRequestUrl = '/api/ajdiawjdawmklcmliawjd'
 
-    test('Should return a statuscode of 200 when a correct steamId is supplied', () => {
-        return request(index.app).get('/api/' + steamID)
+    test('Should return a statuscode of 200 when a correct steamID is supplied', () => {
+        return request(index.app).get(requestUrl)
             .then((response) => {
                 expect(response.statusCode).toEqual(200);
             });
     });
+
+    test('Should return a 404 when an incorrect steamID is supplied', () => {
+        return request(index.app).get(badRequestUrl)
+            .then((response) => {
+                expect(response.statusCode).toEqual(404);
+            })
+    })
 })
